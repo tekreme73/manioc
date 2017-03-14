@@ -1,0 +1,45 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="routes/route-todo-list.html">
+
+<dom-module id="manioc-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <h2>Hello App!</h2>
+
+    <route-todo-list></route-todo-list>
+
+  </template>
+
+  <script>
+    class ManiocApp extends Polymer.Element {
+
+      static get is(){ return 'manioc-app'; }
+
+      static get properties() {
+        return {
+          /* properties meta data object just like 1.x */
+        }
+      }
+
+      static get observers() {
+        return [
+          /* observer array just like 1.x */
+        ]
+      }
+
+      constructor() {
+        super();
+      }
+    }
+
+    // Register custom element definition using standard platform API
+    customElements.define(ManiocApp.is, ManiocApp);
+  </script>
+</dom-module>

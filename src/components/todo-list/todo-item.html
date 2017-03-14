@@ -1,0 +1,55 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<dom-module id="todo-item">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+      .checked {
+        text-decoration: line-through;
+        color: #999;
+        font-style: italic;
+      }
+    </style>
+
+    <li>
+      <span class.checked="{{checked}}">
+        <slot></slot>
+      </span>
+    </li>   
+
+  </template>
+
+  <script>
+    class TodoItem extends Polymer.Element {
+
+      static get is(){ return 'todo-item'; }
+
+      static get properties() {
+        return {
+          /* properties meta data object just like 1.x */
+          checked: {
+            type: Boolean,
+            value: false,
+          }
+        }
+      }
+
+      static get observers() {
+        return [
+          /* observer array just like 1.x */
+        ]
+      }
+
+      constructor() {
+        super();
+      }
+    }
+
+    // Register custom element definition using standard platform API
+    customElements.define(TodoItem.is, TodoItem);
+  </script>
+</dom-module>

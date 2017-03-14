@@ -1,0 +1,62 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="/bower_components/polymer/lib/elements/dom-repeat.html">
+
+<link rel="import" href="./todo-item.html">
+
+<dom-module id="todo-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h4>Hello Todo List!</h4>
+
+    <ul>
+      <template is="dom-repeat" items="{{todos}}">
+        <todo-item checked="{{item.checked}}">
+          {{item.title}}
+        </todo-item>
+      </template>
+    </ul>
+
+  </template>
+
+  <script>
+    class TodoList extends Polymer.Element {
+
+      static get is(){ return 'todo-list'; }
+
+      static get properties() {
+        return {
+          /* properties meta data object just like 1.x */
+          todos: {
+            type: Array,
+            value() {
+              return [
+                { title: 'Todo 1', checked: false },
+                { title: 'Todo 2', checked: false },
+                { title: 'Todo 3', checked: false }
+              ]
+            },
+          },
+        }
+      }
+
+      static get observers() {
+        return [
+          /* observer array just like 1.x */
+        ]
+      }
+
+      constructor() {
+        super();
+      }
+    }
+
+    // Register custom element definition using standard platform API
+    customElements.define(TodoList.is, TodoList);
+  </script>
+</dom-module>

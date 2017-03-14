@@ -1,0 +1,43 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../components/todo-list/todo-list.html">
+
+<dom-module id="route-todo-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h3>Hello Todo List Route!</h3>
+
+    <todo-list></todo-list>
+  </template>
+
+  <script>
+    class RouteTodoList extends Polymer.Element {
+
+      static get is(){ return 'route-todo-list'; }
+
+      static get properties() {
+        return {
+          /* properties meta data object just like 1.x */
+        }
+      }
+
+      static get observers() {
+        return [
+          /* observer array just like 1.x */
+        ]
+      }
+
+      constructor() {
+        super();
+      }
+    }
+
+    // Register custom element definition using standard platform API
+    customElements.define(RouteTodoList.is, RouteTodoList);
+  </script>
+</dom-module>
